@@ -1,7 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import styled from 'styled-components';
 
+const StyledSection = styled.section`
+    width:80%;
+    margin:${props => props.theme.marginBig} auto;
+`;
 
+const StyledPhoto = styled.img`
+    width: 100%;
+`;
 
 export function Potd(){
 
@@ -15,14 +23,14 @@ export function Potd(){
             .catch(error => console.log(error))
     },[])
     return (
-        <section className='container'>
+        <StyledSection className='container'>
             <div className='schpeal'>
                 <p>
                 One of the most popular websites at NASA is the Astronomy Picture of the Day. In fact, this website is one of the most popular websites across all federal agencies. It has the popular appeal of a Justin Bieber video. This endpoint structures the APOD imagery and associated metadata so that it can be repurposed for other applications. In addition, if the concept_tags parameter is set to True, then keywords derived from the image explanation are returned. These keywords could be used as auto-generated hashtags for twitter or instagram feeds; but generally help with discoverability of relevant imagery.
                 </p>
             </div>
             <div className='pic'>
-                <img src={imageObj.hdurl} alt='nasa pic of the day'></img>
+                <StyledPhoto src={imageObj.hdurl} alt='nasa pic of the day'></StyledPhoto>
                 <div className='pic-info'>
                     <h3>{imageObj.copyright}</h3>
                     <p>{imageObj.date}</p>
@@ -30,6 +38,6 @@ export function Potd(){
                     <p>{imageObj.explanation}</p>
                 </div>
             </div>
-        </section>
+        </StyledSection>
     )
 }

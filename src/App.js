@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const StyledApp = styled.div`
   background-color:${props => props.theme.color1};
   color:${props => props.theme.white};
-  width:100%
+  width:100%;
 `
 
 function App() {
